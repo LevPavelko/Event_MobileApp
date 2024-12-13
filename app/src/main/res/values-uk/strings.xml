@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">event_app</string>
+    <string name="Language">Мова</string>
+    <string name="UK">Українська</string>
+</resources>
