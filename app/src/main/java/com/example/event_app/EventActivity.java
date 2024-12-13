@@ -60,8 +60,13 @@ public class EventActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuItem save = menu.add("Back");
+        String backLabel = getString(R.string.Back);
+        MenuItem save = menu.add(backLabel);
         save.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        save.setOnMenuItemClickListener(item  -> {
+            finish();
+            return true;
+        });
         return true;
 
     }

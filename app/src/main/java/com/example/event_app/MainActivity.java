@@ -1,7 +1,11 @@
 package com.example.event_app;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -9,6 +13,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -22,6 +27,7 @@ import com.example.event_app.data.Event;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private EventAdapter eventAdapter;
@@ -84,6 +90,30 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu,menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+        //Shared Pref
+        SharedPreferences preferences = getSharedPreferences("settings", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        //Orientations
+        if(itemId == R.id.ukLang){
+            Log.i("uk", "in");
+            editor.putString("locale", Locale.forLanguageTag("UK").toLanguageTag());
+            editor.apply();
+            setLocale(new Locale("uk")); //UA
+            recreate();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    private void setLocale(Locale locale){
+        Locale.setDefault(locale);
+        Resources resources = getResources();
+        Configuration configuration = resources.getConfiguration();
+        configuration.setLocale(locale);
+        resources.updateConfiguration(configuration, resources.getDisplayMetrics());
     }
 
 }

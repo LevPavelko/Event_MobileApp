@@ -2,5 +2,6 @@
 <resources>
     <string name="app_name">event_app</string>
     <string name="Language">Мова</string>
+    <string name="Back">Повернутися</string>
     <string name="UK">Українська</string>
 </resources>
