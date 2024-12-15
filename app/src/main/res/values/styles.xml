@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Event.Dark" parent="Theme.AppCompat.DayNight">
+
+        <item name="colorPrimary">#8C69BD</item>
+        <item name="android:textColorPrimary">#FFFFFF</item>
+        <item name="android:colorBackground">#121212</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+</resources>

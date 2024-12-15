@@ -1,6 +1,7 @@
 package com.example.event_app;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,6 +31,14 @@ public class EventActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SharedPreferences preferences = getSharedPreferences("settings", MODE_PRIVATE);
+        String theme = preferences.getString("theme", "light");
+
+        if (theme.equals("light")) {
+            setTheme(R.style.Theme_Event_Light);
+        } else if (theme.equals("dark")) {
+            setTheme(R.style.Theme_Event_Dark);
+        }
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
 

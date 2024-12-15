@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item android:id="@+id/themesMenu" android:title="@string/Themes">
+        <menu >
+            <item
+                android:id="@+id/lightTheme"
+                android:title="@string/Light" />
+            <item
+                android:id="@+id/darkTheme"
+                android:title="@string/Dark" />
+        </menu>
+    </item>
     <item android:id="@+id/languagesMenu" android:title="@string/Language">
         <menu >
             <item android:id="@+id/ukLang" android:title="@string/UK"/>
+            <item
+                android:id="@+id/deLang"
+                android:title="@string/DE" />
+            <item
+                android:id="@+id/enLang"
+                android:title="@string/EN" />
         </menu>
     </item>
 </menu>

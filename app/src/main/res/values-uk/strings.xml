@@ -4,4 +4,9 @@
     <string name="Language">Мова</string>
     <string name="Back">Повернутися</string>
     <string name="UK">Українська</string>
+    <string name="DE">Німецька</string>
+    <string name="EN">Англійська</string>
+    <string name="Themes">Теми</string>
+    <string name="Light">Світла</string>
+    <string name="Dark">Темна</string>
 </resources>

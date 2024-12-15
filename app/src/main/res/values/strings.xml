@@ -2,5 +2,10 @@
     <string name="app_name">event_app</string>
     <string name="Language">Language</string>
     <string name="Back">Back</string>
-    <string name="UK">Ukranian</string>
+    <string name="UK">Ukrainian</string>
+    <string name="DE">German</string>
+    <string name="EN">English</string>
+    <string name="Themes">Themes</string>
+    <string name="Light">Light</string>
+    <string name="Dark">Dark</string>
 </resources>
