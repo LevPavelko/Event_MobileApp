@@ -30,10 +30,16 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/ticketPriceText"
+        android:id="@+id/phoneText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/callButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Call" />
 
 </LinearLayout>

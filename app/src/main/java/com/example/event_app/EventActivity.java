@@ -1,12 +1,18 @@
 package com.example.event_app;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -52,6 +58,10 @@ public class EventActivity extends AppCompatActivity {
             return insets;
         });
 
+        binding.callButton.setOnClickListener(v -> {
+            phonePermission.launch(Manifest.permission.CALL_PHONE);
+        });
+
         Intent intent = getIntent();
         mode = intent.getIntExtra(MODE, -1);
         if (mode == DETAILS){
@@ -62,7 +72,7 @@ public class EventActivity extends AppCompatActivity {
                 binding.nameText.setText(event.getName());
                 binding.dateText.setText(event.getDate());
                 binding.placeText.setText(event.getPlace());
-                binding.ticketPriceText.setText(event.getPhone());
+                binding.phoneText.setText(event.getPhone());
             }
         }
     }
@@ -79,6 +89,22 @@ public class EventActivity extends AppCompatActivity {
         return true;
 
     }
+
+    final ActivityResultLauncher<String> phonePermission = registerForActivityResult(
+            new ActivityResultContracts.RequestPermission(),
+            (Boolean permitted) -> {
+                if (permitted){
+                    String phone = "tel:" + binding.phoneText.getText().toString();
+
+                    Log.i("s", "call");
+                    startActivity(new Intent(Intent.ACTION_CALL, Uri.parse(phone)));
+                }
+                else{
+                    Toast.makeText(this, "App doesn't have accesses to phone calls.",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+    );
 
 
 }

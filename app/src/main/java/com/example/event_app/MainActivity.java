@@ -57,14 +57,14 @@ public class MainActivity extends AppCompatActivity {
         });
         List<Event> list = new ArrayList<>();
         try (DBHelper helper = new DBHelper(this)) {
-            Event event = new Event();
-            event.setId(1);
-            event.setName("Coldplay");
-            event.setDate("24.03.2025");
-            event.setPlace("Wiener StadHalle");
-            event.setPhone("0996582306");
-
-            helper.insert(event);
+//            Event event = new Event();
+//            event.setId(1);
+//            event.setName("Coldplay");
+//            event.setDate("24.03.2025");
+//            event.setPlace("Wiener StadHalle");
+//            event.setPhone("0996582306");
+//
+//            helper.insert(event);
             list = helper.selectAll();
         }
 
